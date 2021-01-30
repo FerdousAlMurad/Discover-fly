@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flight Booking</title>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/all.min.css">
@@ -57,8 +59,10 @@
                     <label for="">First Class ($150)</label>
                     <div class="f-class w-100">
                         <input id="first-count" class="inp-style inp-width" type="number" name="">
-                        <button onclick=" handleTicketChange('first',true)" class="btn first-class-plus"><i class="fas fa-plus"></i></button>
-                        <button onclick=" handleTicketChange('first',false)" class="btn first-class-minus"><i class="fas fa-minus"></i></button>
+                        <button onclick=" handleTicketChange('first',true)" class="btn first-class-plus"><i
+                                class="fas fa-plus"></i></button>
+                        <button onclick=" handleTicketChange('first',false)" class="btn first-class-minus"><i
+                                class="fas fa-minus"></i></button>
 
                         <div>
                             <h6 id="first-total">$150</h6>
@@ -68,24 +72,15 @@
                 </div>
             </div>
 
-            <!-- <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <button type="button" class="btn btn-default">  <p>+ -</p> </button>
-                   
-                </div>
-            </div> -->
-
             <div class="input-group f-class">
                 <div class="w-100">
                     <label for="">Economy ($100)</label>
                     <div class="f-class">
                         <input id="economy-count" class="inp-style inp-width" type="number" name="">
-                        <button onclick=" handleTicketChange('economy',true)" class="btn economy-plus"><i class="fas fa-plus"></i></button>
-                        <button onclick=" handleTicketChange('economy',false)" class="btn economy-minus"><i class="fas fa-minus"></i></button>
+                        <button onclick=" handleTicketChange('economy',true)" class="btn economy-plus"><i
+                                class="fas fa-plus"></i></button>
+                        <button onclick=" handleTicketChange('economy',false)" class="btn economy-minus"><i
+                                class="fas fa-minus"></i></button>
 
                         <div>
                             <h6 id="economy-total">$100</h6>
@@ -95,15 +90,6 @@
                 </div>
             </div>
 
-            <!-- <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
-                </div>
-            </div> -->
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
@@ -143,37 +129,28 @@
         </div>
 
         <script>
-            // document.getElementById('first-increase').addEventListener('click', function () {
-            //     handleProductChange(true); 
-
-            // });
-
-            // document.getElementById('first-decrease').addEventListener('click', function () {
-            //     handleProductChange(false);
-
-            // });
 
             function handleTicketChange(ticket, isIncrease) {
                 const ticketInput = document.getElementById(ticket + '-count');
                 const ticketCount = parseInt(ticketInput.value);
-            
+
                 let ticketNewCount = ticketCount;
-                if(isIncrease == true){
+                if (isIncrease == true) {
                     ticketNewCount = ticketCount + 1;
                 }
-                if(isIncrease == false && ticketCount > 0){
+                if (isIncrease == false && ticketCount > 0) {
                     ticketNewCount = ticketCount - 1;
                 }
                 ticketInput.value = ticketNewCount;
                 // const ticketTotal = ticketNewCount * 150;
                 let ticketTotal = 0;
-                if(ticket== 'first'){
+                if (ticket == 'first') {
                     ticketTotal = ticketNewCount * 150;
                 }
-                if(ticket== 'economy'){
+                if (ticket == 'economy') {
                     ticketTotal = ticketNewCount * 100;
                 }
-                document.getElementById(ticket+ '-total').innerText = '$' + ticketTotal;
+                document.getElementById(ticket + '-total').innerText = '$' + ticketTotal;
                 calculateTotal();
 
             }
@@ -198,36 +175,6 @@
                 const ticketCount = parseInt(ticketInput.value);
                 return ticketCount;
             }
-
-            // function calculateTotal(){
-            //     const firstInput = document.getElementById('first-count');
-            //     const firstCount = parseInt(firstInput.value);
-            //     const economyInput = document.getElementById('economy-count');
-            //     const economyCount = parseInt(economyInput.value);
-            //     const totalPrice = firstCount * 150 + economyCount * 100;
-            //     document.getElementById(total-price).innerText = '$'+ totalPrice
-            // }
-
-
-            // document.getElementById('first-increase').addEventListener('click', function(){
-            // const firstInput = document.getElementById('first-count');
-            // const firstCount = parseInt(firstInput.value);
-            // const firstNewCount = firstCount + 1;
-            // firstInput.value = firstNewCount;
-            // const firstTotal = firstNewCount * 150;
-            // document.getElementById('first-total').innerText = '$'+ firstTotal;
-
-            // });
-
-            // document.getElementById('first-decrease').addEventListener('click', function(){
-            // const firstInput = document.getElementById('first-count');
-            // const firstCount = parseInt(firstInput.value);
-            // const firstNewCount = firstCount - 1;
-            // firstInput.value = firstNewCount;
-            // const firstTotal = firstNewCount * 150;
-            // document.getElementById('first-total').innerText = '$'+ firstTotal;
-
-            // });
 
 
         </script>
